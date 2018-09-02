@@ -77,22 +77,27 @@ namespace CMS.Admin.Controllers
         {
             using (CMSContext context = new CMSContext())
             {
-                var layoutBilgiler = context.Layouts.Where(c => c.Name == oldLayout).FirstOrDefault();
+                //Layout Güncelleme İşlemi
+                var layoutBilgiler = context.Layouts.FirstOrDefault(c => c.Name == oldLayout);
                 layoutBilgiler.Name = Name;
-
-
-                var layout = context.Layouts.OrderByDescending(x => x.Id).FirstOrDefault();
-                //TODO: Burada KALDIN !!
-                context.LayoutItems.Remove(layout.LayoutItems);
-                foreach (var kolonBilgisi in kolonlar)
-                {
-                    var post = new LayoutItem {Class = kolonBilgisi.ToString(), LayoutId = layout.Id,};
-                    context.LayoutItems.AddOrUpdate(post);
-                }
-
+                context.Layouts.AddOrUpdate(layoutBilgiler);
+                
+                //Layout İtemlerini silme işlemi
+                var eskilayoutKolonlar = context.LayoutItems.Where(x => x.LayoutId == layoutBilgiler.Id).ToList();
+                context.LayoutItems.RemoveRange(eskilayoutKolonlar);
                 if (context.SaveChanges() > 0)
                 {
-                    return RedirectToAction("Index");
+                    //Layout İtemleri ekleme işlemi
+                    foreach (var kolonBilgisi in kolonlar)
+                    {
+                        var post = new LayoutItem { Class = kolonBilgisi.ToString(), LayoutId = layoutBilgiler.Id, };
+                        context.LayoutItems.AddOrUpdate(post);
+                    }
+                    //Veri tabanına kayıt işlemi
+                    if (context.SaveChanges() > 0)
+                    {
+                        return RedirectToAction("Index");
+                    }
                 }
             }
 

@@ -53,6 +53,10 @@
     <Compile Include="Migrations\201808290806382_ilkMigration.Designer.cs">
       <DependentUpon>201808290806382_ilkMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809011943440_SayfalaraSlugEklendi.cs" />
+    <Compile Include="Migrations\201809011943440_SayfalaraSlugEklendi.Designer.cs">
+      <DependentUpon>201809011943440_SayfalaraSlugEklendi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AbstractBaseRepository.cs" />
@@ -83,6 +87,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808290806382_ilkMigration.resx">
       <DependentUpon>201808290806382_ilkMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809011943440_SayfalaraSlugEklendi.resx">
+      <DependentUpon>201809011943440_SayfalaraSlugEklendi.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

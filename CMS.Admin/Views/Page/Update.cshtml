@@ -9,16 +9,16 @@
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption font-red-sunglo">
-                    <i class="icon-plus font-red-sunglo"></i>
-                    <span class="caption-subject bold uppercase"> Layout Ekle(Sayfa Yerleşimi)</span>
+                    <i class="icon-settings font-red-sunglo"></i>
+                    <span class="caption-subject bold uppercase"> Sayfa Güncelle</span>
                 </div>
             </div>
 
-            <form action="/Layout/Add" method="post">
+            <form action="/Layout/Update" method="post">
                 <div class="portlet-body form">
                     <div class="form-body">
                         <div class="form-group form-md-line-input">
-                            <input type="text" class="form-control" name="Name" id="form_control_1" placeholder="Layout adını buraya giriniz">
+                            <input type="text" class="form-control" name="Name" id="form_control_1" placeholder="Layout adını buraya giriniz" value="@ViewBag.layout.Name">
                             <label for="form_control_1">Layout Adı</label>
                         </div>
                         <center>
@@ -26,13 +26,27 @@
                                 <i class="fa fa-plus"></i>
                             </button>
                         </center>
-                        <div id="section"></div>
+                        <div id="section">
+                            @foreach (var bilgi in ViewBag.layout.LayoutItems)
+                            {
+                                <div id="colonWith" class="@bilgi.Class">
+                                    <div class="input-group">
+                                        <input type="text" name="kolonlar[]" class="form-control" readonly value="@bilgi.Class">
+                                        <span class="input-group-btn">
+                                            <button id="buttonSil" class="btn btn-danger" type="button">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                     </div>
                     <div class="form-actions noborder">
                         <button type="submit" class="btn blue">Kaydet</button>
                     </div>
                 </div>
-
+                <input name="oldLayout" value="@ViewBag.layout.Name" type="hidden"/>
             </form>
         </div>
         <!-- END SAMPLE FORM PORTLET-->
@@ -100,6 +114,6 @@
                 e.preventDefault;
                 $(this).parent().parent().remove();
             });
-        
+
     });
 </script>

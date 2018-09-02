@@ -17,3 +17,4 @@ C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrat
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.csproj.GenerateResource.cache
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\bin\Debug\CMS.Common.dll
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\bin\Debug\CMS.Common.pdb
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.SayfalaraSlugEklendi.resources
