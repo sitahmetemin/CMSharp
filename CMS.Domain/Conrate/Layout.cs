@@ -16,6 +16,6 @@ namespace CMS.Domain.Conrate
         public bool IsDeleted { get; set; }
 
         public ICollection<Page> Pages { get; set; }
-        public ICollection<LayoutItem> LayoutItems { get; set; }
+        public virtual ICollection<LayoutItem> LayoutItems { get; set; }
     }
 }

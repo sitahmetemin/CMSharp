@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using CMS.Admin.Models;
@@ -47,13 +48,14 @@ namespace CMS.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpGet]
         public JsonResult LayoutCagir(int cagrilacakLayout)
         {
             CMSContext context = new CMSContext();
-            List<LayoutItem> bilgiler = new List<LayoutItem>();
-            bilgiler = context.LayoutItems.Where(x => x.LayoutId == cagrilacakLayout).ToList();
-            return Json(bilgiler, JsonRequestBehavior.AllowGet);
+            var bilgiler = context.LayoutItems.Where(x => x.LayoutId == cagrilacakLayout).Select(a => a.Class).ToList();
+
+            
+            return Json(bilgiler,JsonRequestBehavior.AllowGet);
         }
 
         //////////////////////////////////////////////////////////////////// Post
@@ -64,9 +66,40 @@ namespace CMS.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(string veriler)
+        public ActionResult Update(string Name, Array txtArealar, int layoutId)
         {
+            
+            using (CMSContext context = new CMSContext())
+            {
+                context.Pages.Add(new Page()
+                {
+                    Name = Name,
+                    LayoutId = layoutId,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    IsDeleted = false,
+                    Slug = GenerateSlug(Name)
+                });
+                
+            }
+
+            
             return View();
+        }
+
+        public string GenerateSlug(string phrase, int maxLength = 50)
+        {
+            string str = phrase.ToLower();
+            // invalid chars, make into spaces
+            str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
+            // convert multiple spaces/hyphens into one space       
+            str = Regex.Replace(str, @"[\s-]+", " ").Trim();
+            // cut and trim it
+            str = str.Substring(0, str.Length <= maxLength ? str.Length : maxLength).Trim();
+            // hyphens
+            str = Regex.Replace(str, @"\s", "-");
+
+            return str;
         }
     }
 }
