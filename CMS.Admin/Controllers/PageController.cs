@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
@@ -18,7 +19,7 @@ namespace CMS.Admin.Controllers
             LayoutModel model = new LayoutModel();
             using (CMSContext context = new CMSContext())
             {
-                model.Pages = context.Pages.Where(x => x.IsDeleted == false).ToList();
+                model.Pages = context.Pages.Include("Layout").Where(x => x.IsDeleted == false).ToList();
                 return View(model);
             }
         }
@@ -60,15 +61,10 @@ namespace CMS.Admin.Controllers
 
         //////////////////////////////////////////////////////////////////// Post
         [HttpPost]
-        public ActionResult Add(string veriler)
+        [ValidateInput(false)]
+        public ActionResult Add(string Name, string[] txtArealar, int layoutId)
         {
-            return View();
-        }
 
-        [HttpPost]
-        public ActionResult Update(string Name, Array txtArealar, int layoutId)
-        {
-            
             using (CMSContext context = new CMSContext())
             {
                 context.Pages.Add(new Page()
@@ -81,7 +77,31 @@ namespace CMS.Admin.Controllers
                     Slug = GenerateSlug(Name)
                 });
                 
+
+                if (context.SaveChanges() > 0)
+                {
+                    var sonEklenen = context.Pages.Where(x => x.Name == Name).FirstOrDefault();
+
+                    foreach (var icerik in txtArealar)
+                    {
+                        context.PageContents.Add(new PageContent()
+                        {
+                            Content = icerik,
+                            PageId = sonEklenen.Id
+                        });
+                    }
+
+                    return context.SaveChanges() > 0 ? RedirectToAction("Index") : null;
+                }
             }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Update(string Name, Array txtArealar, int layoutId)
+        {
+            
+            
 
             
             return View();
@@ -90,6 +110,12 @@ namespace CMS.Admin.Controllers
         public string GenerateSlug(string phrase, int maxLength = 50)
         {
             string str = phrase.ToLower();
+            str = str.Replace('ı', 'i');
+            str = str.Replace('ü', 'u');
+            str = str.Replace('ö', 'o');
+            str = str.Replace('ç', 'c');
+            str = str.Replace('ğ', 'g');
+            str = str.Replace('ş', 's');
             // invalid chars, make into spaces
             str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
             // convert multiple spaces/hyphens into one space       
