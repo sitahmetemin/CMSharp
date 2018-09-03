@@ -60,6 +60,7 @@ namespace CMS.DataAccsess.Migrations
                 Email = "sitahmetemin@gmail.com",
                 Password = "123654",
                 DisplayName = "sitahmetemin",
+                Image = "https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1",
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 IsDeleted = false,

@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="portlet solid box blue">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-user"></i>Resim
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <img id="ProfilResmi" class="img-responsive" src="@TempData["Image"]" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="portlet box yellow">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-user"></i>Profil
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="#">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label">Email Adres</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <input type="email" id="Email" value="@TempData["Email"]" readonly="readonly" class="form-control" placeholder="Email Address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Nick</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <input type="text" value="@TempData["DisplayName"]" id="DisplayName" class="form-control" placeholder="Nick">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Ad</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <input type="text" value="@TempData["FirstName"]" id="FirstName" class="form-control" placeholder="Firs Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Soyad</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <input type="text" value="@TempData["LastName"]" id="LastName" class="form-control" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Şifre</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <input type="password" value="@TempData["Password"]" id="Password" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Resim</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <input type="text" value="@TempData["Image"]" id="Image" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="btn-set pull-left">
+                            <button id="btnKaydet" type="submit" class="btn blue">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#btnKaydet').on('click',
+            function() {
+                var Email = $('#Email').val();
+                var DisplayName = $('#DisplayName').val();
+                var FirstName = $('#FirstName').val();
+                var LastName = $('#LastName').val();
+                var Password = $('#Password').val();
+                var Image = $('#Image').val();
+
+                $.ajax({
+                    url: "/User/Index",
+                    type: "POST",
+                    data: {
+                        'Email': Email,
+                        'DisplayName': DisplayName,
+                        'FirstName': FirstName,
+                        'LastName': LastName,
+                        'Password': Password,
+                        'Image': Image
+                    },
+                    dataType: "json",
+                    success: function (result) {
+
+                        swal(
+                            'İyi İş!',
+                            'Başarılı Bir Şekilde Kaydedildi!',
+                            result);
+                    },
+                    error: function(response) {
+                        console.log(response);
+                    }
+                });
+            });
+    });
+</script>
