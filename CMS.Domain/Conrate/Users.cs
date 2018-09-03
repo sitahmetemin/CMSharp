@@ -16,6 +16,7 @@ namespace CMS.Domain.Conrate
         public string Email { get; set; }
         public string Password { get; set; }
         public int AuthorityId { get; set; }
+        public string Image { get; set; }
         public virtual Authorization Authorization { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; } = DateTime.Now;

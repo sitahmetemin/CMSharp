@@ -15,7 +15,7 @@ namespace CMS.Domain.Conrate
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public bool IsDeleted { get; set; }
 
-        public ICollection<Page> Pages { get; set; }
+        public  ICollection<Page> Pages { get; set; }
         public virtual ICollection<LayoutItem> LayoutItems { get; set; }
     }
 }

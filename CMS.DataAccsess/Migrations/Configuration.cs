@@ -22,6 +22,14 @@ namespace CMS.DataAccsess.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
+            context.Settings.Add(new Settings()
+            {
+                Id = 1,
+                Copyright = "Tüm Haklarý <a href='http://www.ahmeteminsit.com'>Ahmet Emin ÞÝT</a>e Aittir.",
+                Description = "Site Description",
+                Url = "http://localhost.com",
+            });
+
             context.Authorizations.AddOrUpdate(new Authorization()
             {
                 Id = 1,

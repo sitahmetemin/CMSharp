@@ -20,5 +20,6 @@ namespace CMS.DataAccsess.Concrate
         public DbSet<PageContent> PageContents { get; set; }
         public DbSet<Authorization> Authorizations { get; set; }
         public DbSet<Users> Userses { get; set; }
+        public DbSet<Settings> Settings { get; set; }
     }
 }

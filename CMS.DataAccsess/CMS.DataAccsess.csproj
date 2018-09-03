@@ -57,6 +57,14 @@
     <Compile Include="Migrations\201809011943440_SayfalaraSlugEklendi.Designer.cs">
       <DependentUpon>201809011943440_SayfalaraSlugEklendi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809031414242_UserImageAdd.cs" />
+    <Compile Include="Migrations\201809031414242_UserImageAdd.Designer.cs">
+      <DependentUpon>201809031414242_UserImageAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809031425373_SettingsAdd.cs" />
+    <Compile Include="Migrations\201809031425373_SettingsAdd.Designer.cs">
+      <DependentUpon>201809031425373_SettingsAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AbstractBaseRepository.cs" />
@@ -90,6 +98,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809011943440_SayfalaraSlugEklendi.resx">
       <DependentUpon>201809011943440_SayfalaraSlugEklendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031414242_UserImageAdd.resx">
+      <DependentUpon>201809031414242_UserImageAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031425373_SettingsAdd.resx">
+      <DependentUpon>201809031425373_SettingsAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

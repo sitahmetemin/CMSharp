@@ -9,3 +9,4 @@ C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Debug\EntityFramework.SqlServer.d
 C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Debug\EntityFramework.xml
 C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\devpc\source\repos\CMS\CMS.Domain\obj\Debug\CMS.Domain.csproj.CopyComplete
+C:\Users\devpc\source\repos\CMS\CMS.Domain\obj\Debug\CMS.Domain.csprojAssemblyReference.cache

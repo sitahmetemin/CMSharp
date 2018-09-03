@@ -18,3 +18,5 @@ C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.csproj
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\bin\Debug\CMS.Common.dll
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\bin\Debug\CMS.Common.pdb
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.SayfalaraSlugEklendi.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.UserImageAdd.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.SettingsAdd.resources

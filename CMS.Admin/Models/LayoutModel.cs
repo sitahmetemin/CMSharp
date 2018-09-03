@@ -10,5 +10,6 @@ namespace CMS.Admin.Models
     {
         public virtual ICollection<Layout> Layouts { get; set; }
         public virtual ICollection<Page> Pages { get; set; }
+        
     }
 }

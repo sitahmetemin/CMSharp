@@ -33,20 +33,33 @@ namespace CMS.Admin.Controllers
                 model.Layouts = context.Layouts.Where(x => x.IsDeleted == false).ToList();
                 return View(model);
             }
-
-            return null;
         }
 
         [HttpGet]
-        public ActionResult Update()
+        public ActionResult Update(string pageName)
         {
-            return View();
+            using (CMSContext context = new CMSContext())
+            {
+                LayoutModel model = new LayoutModel();
+
+                model.Layouts = context.Layouts.Where(x => x.IsDeleted == false).ToList();
+                model.Pages = context.Pages.Include("PageContents").Where(z => z.Name == pageName).ToList();
+                //model.Pages = context.Pages.Include("PageContent").Where(x => x.Name == pageName).ToList();
+
+                return View(model);
+            }
+            
         }
 
         [HttpGet]
-        public ActionResult Delete(string slug)
+        public ActionResult Delete(string pageName)
         {
-            return RedirectToAction("Index");
+            using (CMSContext ctx = new CMSContext())
+            {
+                var page = ctx.Pages.Where(x => x.Name == pageName).FirstOrDefault();
+                page.IsDeleted = true;
+                return ctx.SaveChanges() > 0 ? RedirectToAction("Index") : null;
+            }
         }
 
         [HttpGet]
@@ -106,6 +119,10 @@ namespace CMS.Admin.Controllers
             
             return View();
         }
+
+
+
+        ////////////////////////////////////////////////////////////////////////////// Custom Metod
 
         public string GenerateSlug(string phrase, int maxLength = 50)
         {

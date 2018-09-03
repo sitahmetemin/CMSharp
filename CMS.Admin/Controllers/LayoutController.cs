@@ -81,7 +81,7 @@ namespace CMS.Admin.Controllers
                 var layoutBilgiler = context.Layouts.FirstOrDefault(c => c.Name == oldLayout);
                 layoutBilgiler.Name = Name;
                 context.Layouts.AddOrUpdate(layoutBilgiler);
-                
+
                 //Layout İtemlerini silme işlemi
                 var eskilayoutKolonlar = context.LayoutItems.Where(x => x.LayoutId == layoutBilgiler.Id).ToList();
                 context.LayoutItems.RemoveRange(eskilayoutKolonlar);
@@ -90,9 +90,10 @@ namespace CMS.Admin.Controllers
                     //Layout İtemleri ekleme işlemi
                     foreach (var kolonBilgisi in kolonlar)
                     {
-                        var post = new LayoutItem { Class = kolonBilgisi.ToString(), LayoutId = layoutBilgiler.Id, };
+                        var post = new LayoutItem {Class = kolonBilgisi.ToString(), LayoutId = layoutBilgiler.Id,};
                         context.LayoutItems.AddOrUpdate(post);
                     }
+
                     //Veri tabanına kayıt işlemi
                     if (context.SaveChanges() > 0)
                     {
@@ -111,13 +112,9 @@ namespace CMS.Admin.Controllers
                 var layout = context.Layouts.Where(c => c.Name == layoutName).FirstOrDefault();
                 layout.IsDeleted = true;
                 context.Layouts.AddOrUpdate(layout);
-                if (context.SaveChanges() > 0)
-                {
-                    return RedirectToAction("Index");
-                }
-            }
 
-            return null;
+                return context.SaveChanges() > 0 ? RedirectToAction("Index") : null;
+            }
         }
     }
 }

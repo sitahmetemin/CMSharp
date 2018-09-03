@@ -55,6 +55,7 @@
     <Compile Include="Conrate\LayoutItem.cs" />
     <Compile Include="Conrate\Page.cs" />
     <Compile Include="Conrate\PageContent.cs" />
+    <Compile Include="Conrate\Settings.cs" />
     <Compile Include="Conrate\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

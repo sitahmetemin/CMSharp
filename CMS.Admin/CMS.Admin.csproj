@@ -6334,7 +6334,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\SideBarMenu.cshtml" />
+    <Content Include="Views\Shared\_SideBarMenu.cshtml" />
     <Content Include="Views\Layout\Index.cshtml" />
     <Content Include="Views\Layout\Add.cshtml" />
     <Content Include="Views\Layout\Update.cshtml" />
