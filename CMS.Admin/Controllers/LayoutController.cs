@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using CMS.Admin.Models;
 using CMS.DataAccsess.Concrate;
+using CMS.DataAccsess.Services;
 using CMS.Domain.Conrate;
 
 namespace CMS.Admin.Controllers
@@ -16,6 +17,9 @@ namespace CMS.Admin.Controllers
         // GET: Layout
         public ActionResult Index()
         {
+            //var model = Services.LayoutService.GetLayouts();
+            //return View(model);
+
             //var model = Services.
             LayoutModel model = new LayoutModel();
             using (CMSContext context = new CMSContext())

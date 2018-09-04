@@ -11,7 +11,11 @@ namespace CMS.DataAccsess.Services
     {
         public static ILayoutService LayoutService
         {
-            get { return (ILayoutService) new LayoutService(); }
+            get
+            {
+                //TODO : Injection yapılacak
+                return (ILayoutService) new LayoutService();
+            }
         }
     }
 }

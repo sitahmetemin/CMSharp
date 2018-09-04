@@ -9,7 +9,7 @@ using CMS.Domain.Abstract;
 
 namespace CMS.DataAccsess.Repository
 {
-    class AbstractBaseRepository<T> : IDisposable where T : class, IBaseEntity
+    public abstract class AbstractBaseRepository<T> : IDisposable where T : class, IBaseEntity
     {
         internal CMSContext context = null;
 
@@ -83,5 +83,23 @@ namespace CMS.DataAccsess.Repository
                 context.Dispose();
             }
         }
+
+        public IQueryable<E> Query<E>() where E : class
+        {
+            return context.Set<E>();
+        }
+    }
+    public class BaseRepository<T> : AbstractBaseRepository<T>
+        where T : class, IBaseEntity
+    {
+        //public FriendList FullDelete(int id)
+        //{
+
+        //    var model = context.FriendLists.FirstOrDefault(x => x.Id == id);
+        //    var DeletEntitiy = context.Entry(model);
+        //    DeletEntitiy.State = EntityState.Deleted;
+        //    context.SaveChanges();
+        //    return null;
+        //}
     }
 }

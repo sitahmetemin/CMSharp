@@ -14,5 +14,7 @@ namespace CMS.DataAccsess.Services.InterFaces
         LayoutDto GetLayoutById(int Id);
 
         void InsertNewLayout(LayoutDto model);
+        void UpdateLayout(LayoutDto model);
+        void DeleteLayout(LayoutDto model);
     }
 }

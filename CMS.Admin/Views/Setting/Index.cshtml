@@ -1,0 +1,385 @@
+﻿@{
+    ViewBag.Title = "Ayarlar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+<div class="col-md-12">
+<div class="portlet box red">
+<div class="portlet-title">
+    <div class="caption">
+        <i class="fa fa-cogs"></i>Ayarlar
+    </div>
+</div>
+<div class="portlet-body form">
+<!-- BEGIN FORM-->
+<div class="form-body">
+
+<div class="portlet light bordered">
+<div class="portlet-body">
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#genel" data-toggle="tab"> Genel </a>
+    </li>
+    <li>
+        <a href="#sosyal" data-toggle="tab"> Sosyal Medya </a>
+    </li>
+    <li>
+        <a href="#Mail" data-toggle="tab"> Email </a>
+    </li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane fade active in" id="genel">
+    <div class="form-group">
+        <label class="control-label">Url</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" id="Url" value="@TempData["Url"]" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">SiteTitle</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="@TempData["SiteTitle"]" id="SiteTitle" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Slogan</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="@TempData["Slogan"]" id="Slogan" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Description</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="@TempData["Description"]" id="Description" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Copyright</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="@TempData["Copyright"]" id="Copyright" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">İcon</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="@TempData["Ico"]" id="Ico" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Logo</label>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+            </span>
+            <input type="text" value="@TempData["Logo"]" id="Logo" class="form-control">
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="sosyal">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Facebook</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" id="Facebook" value="@TempData["Facebook"]" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Twitter</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Twitter"]" id="Twitter" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Instagram</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Instagram"]" id="Instagram" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Youtube</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Youtube"]" id="Youtube" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Linkedin</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Linkedin"]" id="Linkedin" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Google+</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Google"]" id="Google" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Github</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Github"]" id="Github" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Pinterest</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Pinterest"]" id="Pinterest" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Tumblr</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Tumblr"]" id="Tumblr" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Flickr</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Flickr"]" id="Flickr" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Reddit</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Reddit"]" id="Reddit" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Snapchat</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Snapchat"]" id="Snapchat" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">Whatsapp</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["Whatsapp"]" id="Whatsapp" class="form-control">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="Mail">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">SMTPHost</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" id="SMTPHost" value="@TempData["SMTPHost"]" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">SMTPPort</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["SMTPPort"]" id="SMTPPort" class="form-control">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">SMTPUser</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["SMTPUser"]" id="SMTPUser" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">SMTPPassword</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input type="text" value="@TempData["SMTPPassword"]" id="SMTPPassword" class="form-control">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="form-actions">
+    <div class="btn-set pull-right">
+        <button id="btnKaydet" type="button" class="btn blue">Kaydet</button>
+    </div>
+</div>
+
+<!-- END FORM-->
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        $('#btnKaydet').on('click',
+            function () {
+                var Url = $('#Url').val();
+                var SiteTitle = $('#SiteTitle').val();
+                var Slogan = $('#Slogan').val();
+                var Description = $('#Description').val();
+                var Copyright = $('#Copyright').val();
+                var Ico = $('#Ico').val();
+                var Logo = $('#Logo').val();
+                var SMTPHost = $('#SMTPHost').val();
+                var SMTPPort = $('#SMTPPort').val();
+                var SMTPUser = $('#SMTPUser').val();
+                var SMTPPassword = $('#SMTPPassword').val();
+                var Facebook = $('#Facebook').val();
+                var Twitter = $('#Twitter').val();
+                var Instagram = $('#Instagram').val();
+                var Youtube = $('#Youtube').val();
+                var Linkedin = $('#Linkedin').val();
+                var Google = $('#Google').val();
+                var Github = $('#Github').val();
+                var Pinterest = $('#Pinterest').val();
+                var Tumblr = $('#Tumblr').val();
+                var Flickr = $('#Flickr').val();
+                var Reddit = $('#Reddit').val();
+                var Snapchat = $('#Snapchat').val();
+                var Whatsapp = $('#Whatsapp').val();
+
+                var data = {
+                        'Url': Url,
+                        'SiteTitle': SiteTitle,
+                        'Slogan': Slogan,
+                        'Description': Description,
+                        'Copyright': Copyright,
+                    'Ico': Ico,
+                        'Logo': Logo,
+                        'SMTPHost': SMTPHost,
+                        'SMTPPort': SMTPPort,
+                        'SMTPUser': SMTPUser,
+                        'SMTPPassword': SMTPPassword,
+                        'Facebook': Facebook,
+                        'Twitter': Twitter,
+                        'Instagram': Instagram,
+                        'Youtube': Youtube,
+                        'Linkedin': Linkedin,
+                        'Google': Google,
+                        'Github': Github,
+                        'Pinterest': Pinterest,
+                        'Tumblr': Tumblr,
+                        'Flickr': Flickr,
+                        'Reddit': Reddit,
+                        'Snapchat': Snapchat,
+                        'Whatsapp': Whatsapp
+                };
+
+                $.ajax({
+                    url: "/Setting/Save",
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function (result) {
+                        swal(
+                            'İyi İş!',
+                            'Başarılı Bir Şekilde Kaydedildi!',
+                            result);
+                    },
+                    error: function (response) {
+                        swal(
+                            'Hata!',
+                            'İşlem Yapılamadı!',
+                            'error');
+                    }
+                });
+            });
+    });
+</script>
