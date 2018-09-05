@@ -30,6 +30,7 @@
                     <tr>
                         <th> # </th>
                         <th> Layout Adı </th>
+                        <th> Kolon Saysı </th>
                         <th> İşlemler </th>
                     </tr>
                     </thead>
@@ -41,6 +42,7 @@
                                 @laypoutBilgi.Id
                             </td>
                             <td>@laypoutBilgi.Name </td>
+                            <td>@laypoutBilgi.Items.Count() </td>
                                                         <td>
                                 <a class="btn btn-primary btn-circle" href="/Layout/Update?layoutName=@laypoutBilgi.Name">
                                     <i class="fa fa-edit"></i>

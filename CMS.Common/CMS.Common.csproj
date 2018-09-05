@@ -45,6 +45,7 @@
     <Compile Include="General\ParameterDto.cs" />
     <Compile Include="General\ServiceResult.cs" />
     <Compile Include="Layout\LayoutDto.cs" />
+    <Compile Include="Layout\PageDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

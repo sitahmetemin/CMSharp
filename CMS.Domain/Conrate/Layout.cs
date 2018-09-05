@@ -9,11 +9,7 @@ namespace CMS.Domain.Conrate
 {
     public class Layout :BaseEntitiy
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
-        public bool IsDeleted { get; set; }
 
         public  ICollection<Page> Pages { get; set; }
         public virtual ICollection<LayoutItem> LayoutItems { get; set; }

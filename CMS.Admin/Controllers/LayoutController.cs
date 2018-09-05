@@ -29,32 +29,8 @@ namespace CMS.Admin.Controllers
         [HttpPost]
         public ActionResult Add(string Name, Array kolonlar)
         {
-            using (CMSContext context = new CMSContext())
-            {
-                context.Layouts.Add(new Layout()
-                {
-                    Name = Name,
-                    CreatedAt = DateTime.Now,
-                    IsDeleted = false
-                });
-                if (context.SaveChanges() > 0)
-                {
-                    var layoutItem = context.Layouts.OrderByDescending(x => x.Id).FirstOrDefault();
-
-                    foreach (var kolonBilgisi in kolonlar)
-                    {
-                        var post = new LayoutItem {Class = kolonBilgisi.ToString(), LayoutId = layoutItem.Id,};
-                        context.LayoutItems.Add(post);
-                    }
-
-                    if (context.SaveChanges() > 0)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                }
-            }
-
-            return null;
+            Services.LayoutService.InsertNewLayout(Name, kolonlar);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Update(string layoutName)
@@ -71,46 +47,16 @@ namespace CMS.Admin.Controllers
         [HttpPost]
         public ActionResult Update(string oldLayout, string Name, Array kolonlar)
         {
-            using (CMSContext context = new CMSContext())
-            {
-                //Layout Güncelleme İşlemi
-                var layoutBilgiler = context.Layouts.FirstOrDefault(c => c.Name == oldLayout);
-                layoutBilgiler.Name = Name;
-                context.Layouts.AddOrUpdate(layoutBilgiler);
+            Services.LayoutService.UpdateLayout(oldLayout, Name, kolonlar);
 
-                //Layout İtemlerini silme işlemi
-                var eskilayoutKolonlar = context.LayoutItems.Where(x => x.LayoutId == layoutBilgiler.Id).ToList();
-                context.LayoutItems.RemoveRange(eskilayoutKolonlar);
-                if (context.SaveChanges() > 0)
-                {
-                    //Layout İtemleri ekleme işlemi
-                    foreach (var kolonBilgisi in kolonlar)
-                    {
-                        var post = new LayoutItem {Class = kolonBilgisi.ToString(), LayoutId = layoutBilgiler.Id,};
-                        context.LayoutItems.AddOrUpdate(post);
-                    }
 
-                    //Veri tabanına kayıt işlemi
-                    if (context.SaveChanges() > 0)
-                    {
-                        return RedirectToAction("Index");
-                    }
-                }
-            }
-
-            return null;
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(string layoutName)
         {
-            using (CMSContext context = new CMSContext())
-            {
-                var layout = context.Layouts.Where(c => c.Name == layoutName).FirstOrDefault();
-                layout.IsDeleted = true;
-                context.Layouts.AddOrUpdate(layout);
-
-                return context.SaveChanges() > 0 ? RedirectToAction("Index") : null;
-            }
+            Services.LayoutService.DeleteLayout(layoutName);
+            return RedirectToAction("Index");
         }
     }
 }

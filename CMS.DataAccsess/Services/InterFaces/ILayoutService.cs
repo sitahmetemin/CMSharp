@@ -11,10 +11,10 @@ namespace CMS.DataAccsess.Services.InterFaces
     {
         IEnumerable<LayoutDto> GetLayouts();
 
-        LayoutDto GetLayoutById(int Id);
+        LayoutDto GetLayoutByName(string Name);
 
-        void InsertNewLayout(LayoutDto model);
-        void UpdateLayout(LayoutDto model);
-        void DeleteLayout(LayoutDto model);
+        void InsertNewLayout(string Name, Array Kolonlar);
+        void UpdateLayout(string oldName , string Name, Array Columns);
+        void DeleteLayout(string Name);
     }
 }

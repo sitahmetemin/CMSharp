@@ -24,30 +24,86 @@ namespace CMS.DataAccsess.Services
                     Items = p.LayoutItems.Select(x => new LItemDto()
                     {
                         Id = x.Id,
-                        Class = x.Class
+                        Class = x.Class,
                     })
                 }).ToList();
             }
         }
 
-        public LayoutDto GetLayoutById(int Id)
+
+        public LayoutDto GetLayoutByName(string Name)
         {
             throw new NotImplementedException();
         }
 
-        public void InsertNewLayout(LayoutDto model)
+        public void UpdateLayout(string oldName, string Name, Array columns)
         {
-            throw new NotImplementedException();
+            Layout layout = new Layout();
+            using (BaseRepository<Layout> _repo = new BaseRepository<Layout>())
+            {
+                //Layout Güncelleme İşlemi
+                var layoutBilgiler = _repo.Query<Layout>().FirstOrDefault(c => c.Name == oldName);
+                if (layoutBilgiler.Name != oldName)
+                {
+                    layoutBilgiler.Name = Name;
+                    _repo.Update(layoutBilgiler);
+                }
+                
+                using (BaseRepository<LayoutItem> _repository = new BaseRepository<LayoutItem>())
+                {
+                    //Layout İtemlerini silme işlemi
+                    var eskilayoutKolonlar = _repository.Query<LayoutItem>().Where(x => x.LayoutId == layoutBilgiler.Id)
+                        .ToList();
+                    foreach (var oldColumn in eskilayoutKolonlar)
+                    {
+                        _repository.Delete(oldColumn);
+                    }
+
+                    foreach (var kolonBilgisi in columns)
+                    {
+                        var post = new LayoutItem { Class = kolonBilgisi.ToString(), LayoutId = layoutBilgiler.Id, UpdatedAt = DateTime.Now, CreatedAt = DateTime.Now, IsDeleted = false};
+                        _repository.Add(post);
+                    }
+
+                }
+
+            }
         }
 
-        public void UpdateLayout(LayoutDto model)
+        public void DeleteLayout(string Name)
         {
-            throw new NotImplementedException();
+            using (BaseRepository<Layout> _repo = new BaseRepository<Layout>())
+            {
+                var layout = _repo.Query<Layout>().Where(c => c.Name == Name).FirstOrDefault();
+                _repo.DeleteAt(layout);
+            }
         }
 
-        public void DeleteLayout(LayoutDto model)
+        public void InsertNewLayout(string Name, Array Kolonlar)
         {
-            throw new NotImplementedException();
+            Layout layout = new Layout();
+            using (BaseRepository<Layout> _repo = new BaseRepository<Layout>())
+            {
+                Layout pl = new Layout
+                {
+                    Name = Name,
+                    CreatedAt = DateTime.Now,
+                    IsDeleted = false
+                };
+                _repo.Add(pl);
+            }
+
+            using (BaseRepository<LayoutItem> _repo = new BaseRepository<LayoutItem>())
+            {
+                layout = _repo.Query<Layout>().Where(c => c.Name == Name).First();
+
+
+                foreach (var kolonBilgisi in Kolonlar)
+                {
+                    var post = new LayoutItem {Class = kolonBilgisi.ToString(), LayoutId = layout.Id,};
+                    _repo.Add(post);
+                }
+            }
         }
     }
 }

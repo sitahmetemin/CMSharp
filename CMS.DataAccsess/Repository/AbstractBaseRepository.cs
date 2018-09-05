@@ -26,6 +26,7 @@ namespace CMS.DataAccsess.Repository
         public virtual bool Add(T entity)
         {
             entity.CreatedAt = DateTime.Now;
+            entity.UpdatedAt = DateTime.Now;
             Entity.Add(entity);
 
             return context.SaveChanges() > 0;
@@ -36,9 +37,9 @@ namespace CMS.DataAccsess.Repository
             return Entity.FirstOrDefault(x => x.Id == Id);
         }
 
-        public virtual bool Delete(T entity)
+        public virtual bool DeleteAt(T entity)
         {
-            if (entity != null && entity.Id != default(int))
+            if (entity != null)
             {
                 var record = Find(entity.Id);
                 if (record == null)
@@ -53,9 +54,25 @@ namespace CMS.DataAccsess.Repository
             throw new ArgumentOutOfRangeException(nameof(entity.Id));
         }
 
-        public virtual bool Update(T entity)
+        public virtual bool Delete(T entity)
         {
             if (entity != null && entity.Id != default(int))
+            {
+                var record = Find(entity.Id);
+                if (record == null)
+                {
+                    throw new NullReferenceException(nameof(entity.Id));
+                }
+
+                Entity.Remove(entity);
+                return context.SaveChanges() > 0;
+            }
+            throw new ArgumentOutOfRangeException(nameof(entity.Id));
+        }
+
+        public virtual bool Update(T entity)
+        {
+            if (entity != null)
             {
                 throw new ArgumentOutOfRangeException(nameof(entity.Id));
             }

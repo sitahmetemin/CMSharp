@@ -65,6 +65,26 @@
     <Compile Include="Migrations\201809031425373_SettingsAdd.Designer.cs">
       <DependentUpon>201809031425373_SettingsAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809050724327_LayoutItemDegisti.cs" />
+    <Compile Include="Migrations\201809050724327_LayoutItemDegisti.Designer.cs">
+      <DependentUpon>201809050724327_LayoutItemDegisti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809050745313_LayoutItemDegisti2.cs" />
+    <Compile Include="Migrations\201809050745313_LayoutItemDegisti2.Designer.cs">
+      <DependentUpon>201809050745313_LayoutItemDegisti2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809050747315_LayoutItemDegisti3.cs" />
+    <Compile Include="Migrations\201809050747315_LayoutItemDegisti3.Designer.cs">
+      <DependentUpon>201809050747315_LayoutItemDegisti3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809050815515_BaseEntityInheritanceDegisiklikleri.cs" />
+    <Compile Include="Migrations\201809050815515_BaseEntityInheritanceDegisiklikleri.Designer.cs">
+      <DependentUpon>201809050815515_BaseEntityInheritanceDegisiklikleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809051042037_PageContentDuzeltmeler.cs" />
+    <Compile Include="Migrations\201809051042037_PageContentDuzeltmeler.Designer.cs">
+      <DependentUpon>201809051042037_PageContentDuzeltmeler.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AbstractBaseRepository.cs" />
@@ -104,6 +124,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809031425373_SettingsAdd.resx">
       <DependentUpon>201809031425373_SettingsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809050724327_LayoutItemDegisti.resx">
+      <DependentUpon>201809050724327_LayoutItemDegisti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809050745313_LayoutItemDegisti2.resx">
+      <DependentUpon>201809050745313_LayoutItemDegisti2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809050747315_LayoutItemDegisti3.resx">
+      <DependentUpon>201809050747315_LayoutItemDegisti3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809050815515_BaseEntityInheritanceDegisiklikleri.resx">
+      <DependentUpon>201809050815515_BaseEntityInheritanceDegisiklikleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051042037_PageContentDuzeltmeler.resx">
+      <DependentUpon>201809051042037_PageContentDuzeltmeler.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

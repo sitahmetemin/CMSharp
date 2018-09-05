@@ -20,3 +20,8 @@ C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\bin\Debug\CMS.Common.pdb
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.SayfalaraSlugEklendi.resources
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.UserImageAdd.resources
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.SettingsAdd.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.LayoutItemDegisti.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.LayoutItemDegisti2.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.LayoutItemDegisti3.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.BaseEntityInheritanceDegisiklikleri.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.PageContentDuzeltmeler.resources

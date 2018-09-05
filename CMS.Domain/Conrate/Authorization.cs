@@ -9,11 +9,7 @@ namespace CMS.Domain.Conrate
 {
     public class Authorization : BaseEntitiy
     {
-        public int Id { get; set; }
         public string Authority { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public bool IsDeleted { get; set; }
 
         public ICollection<Users> Userses { get; set; }
     }
