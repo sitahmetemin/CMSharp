@@ -17,16 +17,8 @@ namespace CMS.Admin.Controllers
         // GET: Layout
         public ActionResult Index()
         {
-            //var model = Services.LayoutService.GetLayouts();
-            //return View(model);
-
-            //var model = Services.
-            LayoutModel model = new LayoutModel();
-            using (CMSContext context = new CMSContext())
-            {
-                model.Layouts = context.Layouts.Where(x => x.IsDeleted == false).ToList();
-                return View(model);
-            }
+            var model = Services.LayoutService.GetLayouts();
+            return View(model);
         }
 
         public ActionResult Add()

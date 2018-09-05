@@ -16,7 +16,7 @@ namespace CMS.DataAccsess.Services
         {
             using (BaseRepository<Layout> _repo = new BaseRepository<Layout>())
             {
-                return _repo.Query<Layout>().Select(p => new LayoutDto
+                return _repo.Query<Layout>().Where(x => x.IsDeleted == false).Select(p => new LayoutDto
                 {
                     Id = p.Id,
                     Name = p.Name,

@@ -1,4 +1,5 @@
-﻿@model CMS.Admin.Models.LayoutModel
+﻿@model IEnumerable<CMS.Common.Layout.LayoutDto>
+@*@model CMS.Admin.Models.LayoutModel*@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -33,7 +34,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach (var laypoutBilgi in Model.Layouts)
+                    @foreach (var laypoutBilgi in Model)
                     {
                         <tr>
                             <td>

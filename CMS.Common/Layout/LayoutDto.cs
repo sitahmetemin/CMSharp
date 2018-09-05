@@ -22,6 +22,7 @@ namespace CMS.Common.Layout
 
     public class LItemDto : BaseDto
     {
+        public int LayoutId { get; set; }
         public string Class { get; set; }
         
     }
