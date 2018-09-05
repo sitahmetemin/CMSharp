@@ -16,27 +16,13 @@ namespace CMS.Common.Layout
         }
 
         public string Name { get; set; }
+        public bool IsDeleted { get; set; }
         public IEnumerable<LItemDto> Items { get; set; }
     }
 
     public class LItemDto : BaseDto
     {
-        public LItemDto()
-        {
-            Sizes = new List<ParameterDto>()
-            {
-                new ParameterDto {Name = "Medium", Value = "col-md"},
-                new ParameterDto {Name = "Large", Value = "col-lg"}
-            };
-        }
-
-        public IEnumerable<ParameterDto> Sizes { get; set; }
-        public int SelectedColumn { get; set; }
-        public string SizeValue { get; set; }
-
-        public string Size
-        {
-            get { return string.Format("{0}-{1}", this.SizeValue, this.SelectedColumn); }
-        }
+        public string Class { get; set; }
+        
     }
 }

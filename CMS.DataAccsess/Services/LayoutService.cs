@@ -20,7 +20,8 @@ namespace CMS.DataAccsess.Services
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    Items = p.LayoutItems.Select(x => new LayoutDto
+                    IsDeleted = p.IsDeleted,
+                    Items = p.LayoutItems.Select(x => new LItemDto()
                     {
                         Id = x.Id,
                         Class = x.Class
