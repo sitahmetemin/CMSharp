@@ -17,5 +17,15 @@ namespace CMS.DataAccsess.Services
                 return (ILayoutService) new LayoutService();
             }
         }
+
+        public static IPageServices PageServices
+        {
+            get { return (IPageServices) new PageService(); }
+        }
+
+        public static IMenuService MenuService
+        {
+            get { return (IMenuService)new MenuService(); }
+        }
     }
 }

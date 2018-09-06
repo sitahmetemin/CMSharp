@@ -1,4 +1,4 @@
-﻿@model CMS.Admin.Models.LayoutModel
+﻿@model IEnumerable<CMS.Common.Layout.PageDto>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -34,14 +34,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach (var PageBilgiler in Model.Pages)
+                    @foreach (var PageBilgiler in Model)
                     {
                         <tr>
                             <td>
                                 @PageBilgiler.Id
                             </td>
                             <td>
-                                @PageBilgiler.Layout.Name
+                                @PageBilgiler.LayoutName
                             </td>
                             <td>@PageBilgiler.Name </td>
                             <td>

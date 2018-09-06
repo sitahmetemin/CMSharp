@@ -72,7 +72,7 @@ namespace CMS.DataAccsess.Repository
 
         public virtual bool Update(T entity)
         {
-            if (entity != null)
+            if (entity == null)
             {
                 throw new ArgumentOutOfRangeException(nameof(entity.Id));
             }

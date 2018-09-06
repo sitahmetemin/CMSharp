@@ -11,6 +11,6 @@ namespace CMS.Domain.Conrate
     {
         public string Content { get; set; }
         public int? PageId { get; set; }
-        public Page Page { get; set; }
+        public virtual Page Page { get; set; }
     }
 }

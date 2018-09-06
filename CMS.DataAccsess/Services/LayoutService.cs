@@ -33,7 +33,21 @@ namespace CMS.DataAccsess.Services
 
         public LayoutDto GetLayoutByName(string Name)
         {
-            throw new NotImplementedException();
+            using (BaseRepository<Layout> _repo = new BaseRepository<Layout>())
+            {
+                return _repo.Query<Layout>().Where(p => p.Name == Name).Select(p => new LayoutDto
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Items = p.LayoutItems.Where(x => !x.IsDeleted).Select(x => new LItemDto
+                    {
+                        Id = x.Id,
+                        Class = x.Class
+
+                    })
+                }).FirstOrDefault();
+            }
+
         }
 
         public void UpdateLayout(string oldName, string Name, Array columns)
@@ -43,7 +57,7 @@ namespace CMS.DataAccsess.Services
             {
                 //Layout Güncelleme İşlemi
                 var layoutBilgiler = _repo.Query<Layout>().FirstOrDefault(c => c.Name == oldName);
-                if (layoutBilgiler.Name != oldName)
+                if (Name != oldName)
                 {
                     layoutBilgiler.Name = Name;
                     _repo.Update(layoutBilgiler);

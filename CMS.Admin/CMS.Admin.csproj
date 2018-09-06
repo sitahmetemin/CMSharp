@@ -155,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -5132,6 +5133,8 @@
     <Content Include="Content\global\scripts\app.min.js" />
     <Content Include="Content\global\scripts\datatable.js" />
     <Content Include="Content\global\scripts\datatable.min.js" />
+    <Content Include="Content\iconpicker\fontawesome-iconpicker.min.css" />
+    <Content Include="Content\iconpicker\fontawesome-iconpicker.min.js" />
     <Content Include="Content\layouts\global\scripts\quick-sidebar.js" />
     <Content Include="Content\layouts\global\scripts\quick-sidebar.min.js" />
     <Content Include="Content\layouts\layout2\css\custom.css" />
@@ -6345,6 +6348,9 @@
     <Content Include="Views\Page\Add.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Setting\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\Update.cshtml" />
+    <Content Include="Views\Menu\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,4 @@
-﻿@model CMS.Admin.Models.LayoutModel
+﻿@model IEnumerable<CMS.Common.Layout.LayoutDto>
 @{
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,8 +28,8 @@
                             <div class="col-md-6">
                                 <label for="form_control_1">Layout Adı</label>
                                 <select class="form-control" name="layoutId" id="layoutCagirSelect">
-                                    <option selected="selected">Seçim Yap</option>
-                                    @foreach (var lay in Model.Layouts)
+                                    <option selected="selected" value="wrong">Seçim Yap</option>
+                                    @foreach (var lay in Model)
                                     {
                                         <option value="@lay.Id">
                                             @lay.Name
@@ -59,23 +59,30 @@
         $("#layoutCagirSelect")
             .change(function() {
                 var cagrilacakLayout = $("#layoutCagirSelect option:selected").val();
-                $.ajax({
-                    type: "GET",
-                    url: "/Page/LayoutCagir?cagrilacakLayout=" + cagrilacakLayout,
-                    success: function (result) {
-                        $("#textareaAlani > div").remove();
+                if (cagrilacakLayout != "wrong") {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Page/LayoutCagir?cagrilacakLayout=" + cagrilacakLayout,
+                        success: function (result) {
+                            $("#textareaAlani > div").remove();
 
-                        $.each(result, function( index, value ) {
-                            $("#textareaAlani").append('<div class="' + value + '"><textarea  name="txtArealar[]"></textarea></div>');
-                        });
+                            $.each(result, function( index, value ) {
+                                $("#textareaAlani").append('<div class="' + value + '"><textarea  name="txtArealar[]"></textarea></div>');
+                            });
 
-                        CKEDITOR.replaceAll();
-                    },
-                    error: function (response) {
-                        console.log(JSON.stringify(response));
-                    }
-                });
-
+                            CKEDITOR.replaceAll();
+                        },
+                        error: function (response) {
+                            console.log(JSON.stringify(response));
+                        }
+                    });
+                } else {
+                    $("#textareaAlani > div").remove();
+                    swal(
+                        'Hata!',
+                        'Lütfen Başka Bir Seçeneği Kullanın!',
+                        'error');
+                }
             });
     });
 

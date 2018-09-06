@@ -25,3 +25,5 @@ C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrat
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.LayoutItemDegisti3.resources
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.BaseEntityInheritanceDegisiklikleri.resources
 C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.PageContentDuzeltmeler.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.menuEklendi.resources
+C:\Users\devpc\source\repos\CMS\CMS.DataAccsess\obj\Debug\CMS.DataAccsess.Migrations.MenuEdit.resources

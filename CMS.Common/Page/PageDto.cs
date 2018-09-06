@@ -16,6 +16,8 @@ namespace CMS.Common.Layout
 
         public string Name { get; set; }
         public IEnumerable<PageContentDto> PageContents { get; set; }
+        public int? LayoutId { get; set; }
+        public string LayoutName { get; set; }
     }
 
     public class PageContentDto : BaseDto
