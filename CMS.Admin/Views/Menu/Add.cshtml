@@ -24,11 +24,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="form_control_1">Layout Adı</label>
+                                <label for="form_control_1">Bağlı Menü Adı</label>
                                 <select class="form-control" name="parentId" id="layoutCagirSelect">
+                                    <option>Yok</option>
                                     @foreach (var menu in Model)
                                     {
-                                        <option>Kök</option>
                                         <option value="@menu.Id">
                                             @menu.Name
                                         </option>

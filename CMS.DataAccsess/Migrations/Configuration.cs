@@ -22,6 +22,7 @@ namespace CMS.DataAccsess.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
+
             context.Settings.Add(new Settings()
             {
                 Id = 1,

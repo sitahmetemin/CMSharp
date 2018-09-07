@@ -21,5 +21,6 @@ namespace CMS.DataAccsess.Concrate
         public DbSet<Authorization> Authorizations { get; set; }
         public DbSet<Users> Userses { get; set; }
         public DbSet<Settings> Settings { get; set; }
+        public DbSet<Menu> Menus { get; set; }
     }
 }

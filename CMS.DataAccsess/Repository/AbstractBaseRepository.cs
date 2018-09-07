@@ -27,6 +27,7 @@ namespace CMS.DataAccsess.Repository
         {
             entity.CreatedAt = DateTime.Now;
             entity.UpdatedAt = DateTime.Now;
+            entity.IsDeleted = false;
             Entity.Add(entity);
 
             return context.SaveChanges() > 0;

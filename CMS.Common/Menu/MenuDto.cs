@@ -17,7 +17,11 @@ namespace CMS.Common.Menu
 
         public string Name { get; set; }
         public bool IsDeleted { get; set; }
+        public int? ParentId { get; set; }
+        public string Icon { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public IEnumerable<PageDto> Pages { get; set; }
+        public IEnumerable<MenuDto> Menus { get; set; }
 
     }
 }
