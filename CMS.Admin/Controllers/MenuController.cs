@@ -36,6 +36,12 @@ namespace CMS.Admin.Controllers
             return View(menu);
         }
 
+        //private static int ChildQuery(int Id)
+        //{
+
+        //    return null;
+        //}
+
         public ActionResult Add()
         {
             var model = Services.MenuService.GetMenus();

@@ -14,7 +14,7 @@ namespace CMS.DataAccsess.Services.InterFaces
 
         PageDto GetPageByName(string Name);
 
-        void InsertNewPage(string Name, Array Columns, int LayoutID);
+        void InsertNewPage(string Name, Array Columns, int LayoutID, int MenuId, string[] Class);
         void UpdatePage(string oldName, string Name, Array Columns, int LayoutID);
         void DeletePage(string Name);
     }

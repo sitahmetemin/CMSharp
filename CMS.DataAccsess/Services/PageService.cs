@@ -22,7 +22,7 @@ namespace CMS.DataAccsess.Services
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    LayoutName = p.Layout.Name
+                    LayoutName = p.Layout.Name,
                 }).ToList();
             }
         }
@@ -32,7 +32,7 @@ namespace CMS.DataAccsess.Services
             throw new NotImplementedException();
         }
 
-        public void InsertNewPage(string Name, Array Contents, int LayoutID)
+        public void InsertNewPage(string Name, Array Contents, int LayoutID, int MenuId, string[] Classes)
         {
             Page sayfa = new Page();
             using (BaseRepository<Page> _repo = new BaseRepository<Page>())
@@ -52,6 +52,7 @@ namespace CMS.DataAccsess.Services
             {
                 var sonEklenen = _repo.Query<Page>().Where(x => x.Name == Name).FirstOrDefault();
 
+                var i = 0;
                 foreach (var icerik in Contents)
                 {
                     var con = new PageContent
@@ -59,10 +60,12 @@ namespace CMS.DataAccsess.Services
                         Content = icerik.ToString(),
                         CreatedAt = DateTime.Now,
                         IsDeleted = false,
+                        Class = Classes[i],
                         PageId = sonEklenen.Id
                     };
 
                     _repo.Add(con);
+                    i++;
                 }
             }
         }

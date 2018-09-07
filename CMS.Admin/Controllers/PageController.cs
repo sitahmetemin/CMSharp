@@ -32,6 +32,7 @@ namespace CMS.Admin.Controllers
         public ActionResult Add()
         {
             var model = Services.LayoutService.GetLayouts();
+            ViewBag.menulist = Services.MenuService.GetMenus();
             return View(model);
         }
 
@@ -75,9 +76,9 @@ namespace CMS.Admin.Controllers
         //////////////////////////////////////////////////////////////////// Post
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Add(string Name, string[] txtArealar, int layoutId)
+        public ActionResult Add(string Name, string[] txtArealar, int layoutId, int menuId, string[] Classes)
         {
-            Services.PageServices.InsertNewPage(Name,txtArealar,layoutId);
+            Services.PageServices.InsertNewPage(Name,txtArealar,layoutId, menuId, Classes);
             return RedirectToAction("Index");
         }
 

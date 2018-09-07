@@ -19,17 +19,29 @@
                 <div class="portlet-body form">
                     <div class="form-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group form-md-line-input">
                                     <input type="text" class="form-control" name="Name" id="form_control_1" placeholder="Sayfa adını buraya giriniz">
                                     <label for="form_control_1">Sayfa Adı</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label for="form_control_1">Layout Adı</label>
                                 <select class="form-control" name="layoutId" id="layoutCagirSelect">
                                     <option selected="selected" value="wrong">Seçim Yap</option>
                                     @foreach (var lay in Model)
+                                    {
+                                        <option value="@lay.Id">
+                                            @lay.Name
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="form_control_1">Bağlı Menü Adı</label>
+                                <select class="form-control" name="MenuId" id="layoutCagirSelect">
+                                    <option selected="selected" value="wrong">Seçim Yap</option>
+                                    @foreach (var lay in ViewBag.menulist)
                                     {
                                         <option value="@lay.Id">
                                             @lay.Name
@@ -67,7 +79,7 @@
                             $("#textareaAlani > div").remove();
 
                             $.each(result, function( index, value ) {
-                                $("#textareaAlani").append('<div class="' + value + '"><textarea  name="txtArealar[]"></textarea></div>');
+                                $("#textareaAlani").append('<div class="' + value + '"><input type="hidden" name="Classes" value="' + value + '" /><textarea  name="txtArealar[]"></textarea></div>');
                             });
 
                             CKEDITOR.replaceAll();

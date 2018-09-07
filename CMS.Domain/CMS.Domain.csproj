@@ -57,6 +57,8 @@
     <Compile Include="Conrate\Page.cs" />
     <Compile Include="Conrate\PageContent.cs" />
     <Compile Include="Conrate\Settings.cs" />
+    <Compile Include="Conrate\Slider.cs" />
+    <Compile Include="Conrate\SliderContext.cs" />
     <Compile Include="Conrate\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

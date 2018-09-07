@@ -22,5 +22,7 @@ namespace CMS.DataAccsess.Concrate
         public DbSet<Users> Userses { get; set; }
         public DbSet<Settings> Settings { get; set; }
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<SliderContext> SliderContexts { get; set; }
     }
 }

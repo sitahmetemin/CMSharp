@@ -97,6 +97,10 @@
     <Compile Include="Migrations\201809061359020_MenuEdit2.Designer.cs">
       <DependentUpon>201809061359020_MenuEdit2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809070842023_PageAddClass.cs" />
+    <Compile Include="Migrations\201809070842023_PageAddClass.Designer.cs">
+      <DependentUpon>201809070842023_PageAddClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AbstractBaseRepository.cs" />
@@ -164,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809061359020_MenuEdit2.resx">
       <DependentUpon>201809061359020_MenuEdit2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809070842023_PageAddClass.resx">
+      <DependentUpon>201809070842023_PageAddClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

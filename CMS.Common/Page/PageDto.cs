@@ -24,5 +24,6 @@ namespace CMS.Common.Layout
     {
         public string Content { get; set; }
         public int? PageId { get; set; }
+        public string Class { get; set; }
     }
 }
