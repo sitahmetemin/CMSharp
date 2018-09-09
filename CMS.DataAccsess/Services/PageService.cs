@@ -29,12 +29,70 @@ namespace CMS.DataAccsess.Services
 
         public PageDto GetPageByName(string Name)
         {
-            throw new NotImplementedException();
+            using (BaseRepository<Page> _repo = new BaseRepository<Page>())
+            {
+                return _repo.Query<Page>().Where(x => x.Name == Name).Select(p => new PageDto
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    LayoutName = p.Layout.Name,
+                    PageContents = p.PageContents.Select(x => new PageContentDto
+                    {
+                        Id = x.Id,
+                        Class = x.Class,
+                        PageId = x.PageId,
+                        Content = x.Content
+                    })
+                }).FirstOrDefault();
+            }
+        }
+
+        public List<PageContentDto> GetPageById(int id)
+        {
+            using (BaseRepository<Page> _repo = new BaseRepository<Page>())
+            {
+                var bilgiler = _repo.Query<Page>().Where(c => c.Id == id).FirstOrDefault();
+
+                using (BaseRepository<PageContent> repository = new BaseRepository<PageContent>())
+                {
+                    List<PageContentDto> icerik = new List<PageContentDto>();
+                    var veriler = repository.Query<PageContent>().Where(x => x.PageId == bilgiler.Id).ToList();
+
+                    foreach (var pageContent in veriler)
+                    {
+                        PageContentDto dto = new PageContentDto
+                        {
+                            Id = pageContent.Id,
+                            Class = pageContent.Class,
+                            Content = pageContent.Content,
+                            PageId = pageContent.Id
+                        };
+
+                        icerik.Add(dto);
+                    }
+
+                    return icerik;
+                }
+                
+
+                //return _repo.Query<Page>().Where(x => x.Id == id).Select(p => new PageDto
+                //{
+                //    Id = p.Id,
+                //    Name = p.Name,
+                //    LayoutName = p.Layout.Name,
+                //    PageContents = p.PageContents.Select(x => new PageContentDto
+                //    {
+                //        Id = x.Id,
+                //        Class = x.Class,
+                //        PageId = x.PageId,
+                //        Content = x.Content
+                //    })
+                //}).FirstOrDefault();
+            }
         }
 
         public void InsertNewPage(string Name, Array Contents, int LayoutID, int MenuId, string[] Classes)
         {
-            Page sayfa = new Page();
             using (BaseRepository<Page> _repo = new BaseRepository<Page>())
             {
                 Page pl = new Page
@@ -43,7 +101,8 @@ namespace CMS.DataAccsess.Services
                     CreatedAt = DateTime.Now,
                     LayoutId = LayoutID,
                     IsDeleted = false,
-                    Slug = GenerateSlug(Name)
+                    Slug = GenerateSlug(Name),
+                    MenuId = MenuId
                 };
                 _repo.Add(pl);
             }

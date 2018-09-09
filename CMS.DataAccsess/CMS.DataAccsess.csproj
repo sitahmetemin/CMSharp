@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201809070842023_PageAddClass.Designer.cs">
       <DependentUpon>201809070842023_PageAddClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809071328333_kt.cs" />
+    <Compile Include="Migrations\201809071328333_kt.Designer.cs">
+      <DependentUpon>201809071328333_kt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AbstractBaseRepository.cs" />
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809070842023_PageAddClass.resx">
       <DependentUpon>201809070842023_PageAddClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071328333_kt.resx">
+      <DependentUpon>201809071328333_kt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

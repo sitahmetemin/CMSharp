@@ -10,6 +10,7 @@ namespace CMS.DataAccsess.Concrate
 {
     public class CMSContext : DbContext
     {
+        
         public CMSContext() :base ("CMSContext")
         {
         }

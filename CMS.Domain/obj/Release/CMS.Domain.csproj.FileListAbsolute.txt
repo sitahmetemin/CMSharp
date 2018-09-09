@@ -1,0 +1,12 @@
+C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Release\CMS.Domain.dll.config
+C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Release\CMS.Domain.dll
+C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Release\CMS.Domain.pdb
+C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Release\EntityFramework.dll
+C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Release\EntityFramework.xml
+C:\Users\devpc\source\repos\CMS\CMS.Domain\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\devpc\source\repos\CMS\CMS.Domain\obj\Release\CMS.Domain.csprojAssemblyReference.cache
+C:\Users\devpc\source\repos\CMS\CMS.Domain\obj\Release\CMS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\devpc\source\repos\CMS\CMS.Domain\obj\Release\CMS.Domain.csproj.CopyComplete
+C:\Users\devpc\source\repos\CMS\CMS.Domain\obj\Release\CMS.Domain.dll
+C:\Users\devpc\source\repos\CMS\CMS.Domain\obj\Release\CMS.Domain.pdb

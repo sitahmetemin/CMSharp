@@ -14,5 +14,6 @@ namespace CMS.DataAccsess.Services.InterFaces
         void InsertNewMenu(string Name, int? ParentId, string icon);
         void UpdateMenu(string Name, int? ParentId, string icon, string oldName);
         void DeleteMenu(string Name);
+        string GetMenuRecursion();
     }
 }

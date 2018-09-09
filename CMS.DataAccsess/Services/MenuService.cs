@@ -32,6 +32,66 @@ namespace CMS.DataAccsess.Services
             }
         }
 
+        public string GetMenuRecursion()
+        {
+            using (BaseRepository<Menu> repo = new BaseRepository<Menu>())
+            {
+                var all = repo.Query<Menu>().Where(x => !x.IsDeleted).ToList();
+                var pageTum = repo.Query<Page>().Where(k => !k.IsDeleted).ToList();
+                var strBuilder = new StringBuilder();
+                var parentItems = all.Where(x => x.ParentId == null).ToList();
+
+                foreach (var parentcat in parentItems)
+                {
+                    var childItems = all.Where(x => x.ParentId == parentcat.Id);
+                    if (childItems.Count() > 0)
+                    {
+                        var page = repo.Query<Page>().Where(k => k.MenuId == parentcat.Id).FirstOrDefault();
+                        strBuilder.Append("<li class='dropdown' ><a href='Home/Preview/" + parentcat.Id + "'>" +
+                                          page.Name + "</a>");
+                        AddChildItem(parentcat, strBuilder, all, pageTum);
+                        strBuilder.Append("</li>");
+                    }
+                    else
+                    {
+                        var page = repo.Query<Page>().Where(k => k.MenuId == parentcat.Id).FirstOrDefault();
+                        strBuilder.Append("<li><a href='Home/Preview/" + parentcat.Id + "'>" + page.Name + "</a>" +
+                                          "</li>");
+                    }
+                }
+
+                return strBuilder.ToString();
+            }
+        }
+
+        public void AddChildItem(Menu childItem, StringBuilder strBuilder, List<Menu> MenuTum, List<Page> pageTum)
+        {
+            using (BaseRepository<Menu> repo = new BaseRepository<Menu>())
+            {
+                strBuilder.Append("<ul>");
+                var childItems = MenuTum.Where(x => x.Id == childItem.Id);
+                foreach (Menu cItem in childItems)
+                {
+                    var subChilds = MenuTum.Where(x => x.Id == cItem.Id);
+                    if (subChilds.Count() > 0)
+                    {
+                        var page = pageTum.Where(k => k.MenuId == cItem.Id).FirstOrDefault();
+                        strBuilder.Append("<li class='dropdown-menu'><a href='Home/Preview/" + cItem.Id + "'>" +
+                                          page.Name + "</a>");
+                        AddChildItem(cItem, strBuilder, MenuTum, pageTum);
+                        strBuilder.Append("</li>");
+                    }
+                    else
+                    {
+                        var page = repo.Query<Page>().Where(k => k.MenuId == cItem.Id).FirstOrDefault();
+                        strBuilder.Append("<li><a href='Home/Preview/" + cItem.Id + "'>" + page.Name + "</a></li>");
+                    }
+                }
+
+                strBuilder.Append("</ul>");
+            }
+        }
+
         public MenuDto GetMenuByName(string Name)
         {
             using (BaseRepository<Menu> _repo = new BaseRepository<Menu>())

@@ -1,0 +1,6 @@
+C:\Users\devpc\source\repos\CMS\CMS.Common\bin\Release\CMS.Common.dll
+C:\Users\devpc\source\repos\CMS\CMS.Common\bin\Release\CMS.Common.pdb
+C:\Users\devpc\source\repos\CMS\CMS.Common\obj\Release\CMS.Common.csprojAssemblyReference.cache
+C:\Users\devpc\source\repos\CMS\CMS.Common\obj\Release\CMS.Common.csproj.CoreCompileInputs.cache
+C:\Users\devpc\source\repos\CMS\CMS.Common\obj\Release\CMS.Common.dll
+C:\Users\devpc\source\repos\CMS\CMS.Common\obj\Release\CMS.Common.pdb

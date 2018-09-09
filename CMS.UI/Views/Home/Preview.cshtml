@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Preview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        @foreach (var bilgi in Model)
+        {
+            <div class="@bilgi.Class">
+                <div class="card">
+                    <div class="card-body">
+                        @Html.Raw(bilgi.Content)
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
